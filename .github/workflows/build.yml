@@ -1,0 +1,43 @@
+name: "Build & Validate"
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 3
+
+      - name: Build with Jekyll
+        run: bundle exec jekyll build
+
+      - name: Validate no broken internal links
+        run: |
+          ruby -e '
+            Dir.glob("_site/**/*.html").each do |f|
+              html = File.read(f)
+              html.scan(/href="(\/[^"]*)"/).flatten.uniq.each do |href|
+                next if href.include?("#")
+                path = href.sub(/\.[^\/.]+$/, "") + ".html"
+                candidates = ["_site" + href, "_site" + path, "_site" + href + "/index.html"]
+                unless candidates.any? { |c| File.exist?(c) }
+                  puts "Broken link: #{href} in #{f}"
+                  exit 1
+                end
+              end
+            end
+            puts "OK: no broken internal links"
+          '

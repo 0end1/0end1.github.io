@@ -1,58 +1,86 @@
-# DevLog · 程序员风个人博客
+<div align="center">
 
-基于 **Jekyll + GitHub Pages** 的个人博客，采用**终端美学（Terminal Aesthetic）**设计：
-深色主题、等宽字体、mac 风格窗口顶栏、`$` 命令提示符，并支持暗色/亮色双主题切换。
+# DevLog
 
-## 功能特性
+**程序员风格个人博客 · Jekyll + GitHub Pages**
 
-- 程序员风格主题：深色终端质感 + 亮色模式，自动跟随系统并记忆用户选择
-- 文章列表 + 分页、按年归档、标签/分类聚合
-- 站内全文搜索（实时匹配标题 / 标签 / 分类 / 摘要）
-- giscus 评论系统（基于 GitHub Discussions，零成本）
-- 友情链接 / 外链展示（侧边栏 + 独立页面）
-- 侧边栏广告位（支持文字 / 图片，可一键开关）
-- 响应式布局，移动端汉堡菜单
-- SEO / RSS / Sitemap 开箱即用
+[![Jekyll](https://img.shields.io/badge/Jekyll-3.9-blue)](https://jekyllrb.com)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-ready-1f883d)](https://pages.github.com)
+[![License](https://img.shields.io/github/license/0end1/0end1.github.io)](LICENSE)
+[![Build](https://img.shields.io/github/actions/workflow/status/0end1/0end1.github.io/build.yml?label=build)](https://github.com/0end1/0end1.github.io/actions)
+
+简洁、克制、高效的终端美学博客主题 —— 深色质感、等宽字体、`$` 命令提示符，为记录技术而生。
+
+**在线演示：https://0end1.github.io**
+
+</div>
+
+---
+
+## 特性
+
+- 🎨 **终端美学**：mac 风格窗口顶栏、`$` 提示符、等宽字体
+- 🌗 **双主题**：暗色 / 亮色，自动跟随系统并记忆用户选择
+- 📚 **内容体系**：文章分页、按年归档、标签 / 分类聚合
+- 🔍 **站内搜索**：实时全文匹配，关键词高亮
+- 📖 **阅读体验**：阅读进度条、目录吸顶高亮、阅读时长、相关文章推荐
+- 📌 **置顶文章**：`pinned: true` 一键置顶
+- 💬 **评论系统**：giscus（基于 GitHub Discussions）
+- 🔗 **外链 / 广告**：友情链接与侧边栏广告位，数据文件配置化
+- ⚡ **零构建步骤**：无 Node 依赖，`bundle` 安装即可本地运行
 
 ## 快速开始
 
-### 方式一：本地预览（推荐）
-
-需要 Ruby >= 2.7：
+需要 Ruby ≥ 2.7：
 
 ```bash
+git clone https://github.com/0end1/0end1.github.io.git
+cd 0end1.github.io
 bundle install
 bundle exec jekyll serve
 ```
 
 打开 <http://localhost:4000> 预览。
 
-### 方式二：直接推送到 GitHub Pages
+## 部署
 
-1. 在 GitHub 创建仓库 `<你的用户名>.github.io`
-2. 将本项目推送到 `main` 分支
-3. 仓库 `Settings → Pages`，Source 选 `Deploy from a branch`，分支 `main`、目录 `/ (root)`
-4. 等待 1~2 分钟，访问 `https://<你的用户名>.github.io`
+本项目为 GitHub Pages 用户名站点，push 到 `main` 分支后由云端自动构建：
 
-## 个性化配置
+```bash
+git push origin main
+```
 
-所有配置集中在根目录的 `_config.yml`：
+若作为项目站点部署（`<用户名>.github.io/<仓库>`），在 `_config.yml` 修改：
+
+```yaml
+url: "https://<用户名>.github.io"
+baseurl: "/<仓库名>"
+```
+
+## 配置
+
+所有配置集中在 [`_config.yml`](_config.yml)：
 
 | 配置项 | 说明 |
 | --- | --- |
 | `title` / `description` | 站点名称与描述 |
-| `author` | 你的名字、邮箱、GitHub、头像 |
-| `url` / `baseurl` | 部署地址（项目站点需填 baseurl） |
-| `giscus` | 评论系统配置（`enabled` 改为 `true` 开启） |
+| `author` | 姓名、邮箱、GitHub、头像 |
+| `url` / `baseurl` | 部署地址 |
+| `sponsor` | 打赏区（收款码 / 开关） |
+| `giscus` | 评论系统（`enabled: true` 开启） |
 | `paginate` | 每页文章数 |
 
-- **导航栏**：编辑 `_data/nav.yml` 增删导航项
-- **友情链接**：编辑 `_data/links.yml`
-- **广告位**：编辑 `_data/ads.yml`（`enabled` 控制显示，支持文字/图片）
+其他数据文件：
+
+| 文件 | 作用 |
+| --- | --- |
+| [`_data/nav.yml`](_data/nav.yml) | 导航菜单 |
+| [`_data/links.yml`](_data/links.yml) | 友情链接（外链） |
+| [`_data/ads.yml`](_data/ads.yml) | 侧边栏广告位 |
 
 ## 写文章
 
-在 `_posts/` 目录新建 `YYYY-MM-DD-标题.md`，文件头（front matter）示例：
+在 `_posts/` 目录新建 `YYYY-MM-DD-标题.md`：
 
 ```yaml
 ---
@@ -60,10 +88,18 @@ title: 文章标题
 date: 2026-08-07 09:30:00 +0800
 categories: [教程]
 tags: [Jekyll, 部署]
+pinned: false   # 可选，设为 true 置顶
 ---
 ```
 
-支持 Markdown 语法（代码高亮、表格、引用等），写完后 push 即可自动发布。
+支持 Markdown（代码高亮、表格、引用等），push 后自动发布。
+
+## 文档
+
+- [贡献指南](CONTRIBUTING.md)
+- [行为准则](CODE_OF_CONDUCT.md)
+- [安全说明](SECURITY.md)
+- [变更日志](CHANGELOG.md)
 
 ## 目录结构
 
@@ -71,27 +107,40 @@ tags: [Jekyll, 部署]
 .
 ├── _config.yml          # 站点配置
 ├── _data/               # 数据：导航 / 外链 / 广告
-├── _includes/           # 组件：头部 / 导航 / 侧边栏 / 广告位
+├── _includes/           # 组件：头部 / 导航 / 侧边栏 / 打赏 / 相关文章
 ├── _layouts/            # 布局：默认 / 首页 / 文章 / 页面 / 归档
 ├── _posts/              # 文章（Markdown）
 ├── pages/               # 关于 / 归档 / 标签 / 分类 / 搜索 / 外链
-├── assets/              # 样式与脚本
-│   ├── css/main.css     # 主题样式（CSS 变量双主题）
-│   └── js/              # 主题切换 / 搜索 / 交互
-└── index.html           # 首页
+├── assets/              # 样式与脚本（零依赖）
+│   ├── css/main.css
+│   ├── js/
+│   └── images/
+├── .github/             # Issue/PR 模板与 CI
+├── index.html           # 首页
+└── Gemfile              # Ruby 依赖
 ```
 
-## 常见问题
+## 技术栈
 
-**Q：为什么本地 `bundle install` 报错？**
-A：GitHub Pages 官方依赖 `github-pages` gem 对 Ruby 版本有要求，建议使用 Ruby 2.7+（macOS 可用 `brew install ruby` 或 rbenv 安装）。也可以直接跳过本地预览，push 到 GitHub 后由云端自动构建。
+| 层 | 选型 |
+| --- | --- |
+| 静态生成 | [Jekyll 3.9](https://jekyllrb.com) |
+| 托管 | [GitHub Pages](https://pages.github.com) |
+| 代码高亮 | [Rouge](https://github.com/rouge-ruby/rouge) |
+| 评论 | [giscus](https://giscus.app) |
+| 搜索 / 交互 | 原生 JavaScript（零依赖） |
 
-**Q：如何开启评论？**
-A：仓库开启 Discussions → [giscus.app](https://giscus.app) 生成 `repo_id` / `category_id` → 填入 `_config.yml` → 将 `giscus.enabled` 改为 `true`。
+## 贡献
 
-**Q：如何更换头像？**
-A：将图片放入 `assets/images/`，修改 `_config.yml` 中的 `author.avatar` 路径。
+欢迎提交 Issue 与 Pull Request！请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)，
+并遵循约定式提交规范（`feat` / `fix` / `docs` …）。
 
 ## 许可
 
-MIT License · 自由使用，欢迎 Fork。
+本项目基于 [MIT License](LICENSE) 开源。
+
+Copyright © 2026 [0end1](https://github.com/0end1)
+
+---
+
+<p align="center">用 ♥ 与 ☕ 构建 · 托管于 GitHub Pages</p>

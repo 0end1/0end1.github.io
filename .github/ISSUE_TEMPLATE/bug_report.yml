@@ -1,0 +1,63 @@
+name: "🐛 Bug Report"
+description: 报告一个 Bug 或异常行为
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "感谢报告问题！请尽量提供详细信息，帮助快速定位。"
+  - type: input
+    id: url
+    attributes:
+      label: 问题链接 / 页面
+      description: 出问题的页面 URL（如有）
+      placeholder: "https://0end1.github.io/xxx"
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 发生了什么？
+      description: 描述问题的具体表现
+      placeholder: "例如：暗色模式下代码复制按钮不可见…"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤
+      description: 如何复现该问题（1. 2. 3. …）
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期行为
+      description: 你认为应该发生什么
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: 环境
+      description: 在什么环境下遇到？
+      options:
+        - 桌面端浏览器（请注明浏览器）
+        - 移动端浏览器
+        - 其他
+    validations:
+      required: false
+  - type: dropdown
+    id: theme
+    attributes:
+      label: 主题
+      options:
+        - 暗色
+        - 亮色
+        - 跟随系统
+    validations:
+      required: false
