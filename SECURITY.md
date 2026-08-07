@@ -13,7 +13,7 @@
 如果你发现安全漏洞，**请勿公开提交 Issue**（不要写入标题或正文），
 以免在修复前被利用。请通过以下方式私密报告：
 
-- 发送邮件至：`yourname@example.com`
+- 发送邮件至：`y1378379002@gmail.com`
 - 或通过 GitHub 的 [Security Advisories](https://github.com/0end1/0end1.github.io/security/advisories/new)
 
 报告请包含：

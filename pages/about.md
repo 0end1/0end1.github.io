@@ -27,7 +27,12 @@ permalink: /pages/about
 
 ### 联系我
 
-{% if site.author.email %}
+{% if site.author.emails.size > 0 %}
+- 邮箱：
+  {% for mail in site.author.emails %}
+  - <a href="mailto:{{ mail }}">{{ mail }}</a>
+  {% endfor %}
+{% elsif site.author.email %}
 - 邮箱：<a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
 {% endif %}
 {% if site.author.github %}

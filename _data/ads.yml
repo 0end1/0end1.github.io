@@ -12,7 +12,7 @@ slots:
     title: "赞助商广告"
     enabled: true
     type: "text"
-    text: "本站广告位招租，欢迎联系\n邮箱：yourname@example.com"
+    text: "本站广告位招租，欢迎联系\n邮箱：y1378379002@icloud.com"
     url: ""                       # 点击跳转地址，留空则不跳转
 
   - id: sidebar-2
