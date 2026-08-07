@@ -20,6 +20,52 @@ layout: default
   </div>
 </section>
 
+{% comment %} 站点统计栏：文章数 / 标签 / 分类 / 字数 / 建站天数 {% endcomment %}
+{% assign total_chars = 0 %}
+{% for post in site.posts %}
+  {% assign total_chars = total_chars | plus: post.content.size %}
+{% endfor %}
+{% assign total_words = total_chars | divided_by: 3 %}
+{% assign site_ts = site.time | date: "%s" | plus: 0 %}
+{% assign first_post = site.posts | last %}
+{% assign first_ts = first_post.date | date: "%s" | plus: 0 %}
+{% assign site_age_days = site_ts | minus: first_ts | divided_by: 86400 %}
+<section class="site-stats terminal-card" aria-label="站点统计">
+  <div class="stat-item">
+    <span class="stat-num">{{ site.posts.size }}</span>
+    <span class="stat-label">篇文章</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">{{ site.tags.size }}</span>
+    <span class="stat-label">个标签</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">{{ site.categories.size }}</span>
+    <span class="stat-label">个分类</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">{{ total_words }}</span>
+    <span class="stat-label">字</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">{{ site_age_days }}</span>
+    <span class="stat-label">天</span>
+  </div>
+</section>
+
+{% comment %} 置顶文章（front matter 中 pinned: true） {% endcomment %}
+{% assign pinned_posts = site.posts | where: "pinned", true %}
+{% if pinned_posts.size > 0 %}
+<section class="post-list">
+  <div class="section-head">
+    <h2 class="section-title"><span class="prompt-symbol">$</span> ls --pinned</h2>
+  </div>
+  {% for post in pinned_posts limit: 3 %}
+    {% include post-card.html post=post %}
+  {% endfor %}
+</section>
+{% endif %}
+
 <section class="post-list">
   <div class="section-head">
     <h2 class="section-title"><span class="prompt-symbol">$</span> ls -lt ./posts</h2>

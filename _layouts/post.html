@@ -2,9 +2,27 @@
 layout: default
 ---
 
+{% comment %} 估算阅读时长：正文字节数 / 3 ≈ 汉字数，按 400 字/分钟 {% endcomment %}
+{% assign content_chars = page.content | strip_html | size %}
+{% assign read_min = content_chars | divided_by: 1200 | plus: 1 %}
+{% assign post_words = content_chars | divided_by: 3 %}
+
 <article class="post terminal-card">
   <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-breadcrumb">
+      <a href="{{ '/' | relative_url }}">~/</a>
+      {% if page.categories.size > 0 %}
+        {% for category in page.categories %}
+        <span class="breadcrumb-sep">/</span>
+        <a href="{{ '/pages/categories' | relative_url }}#{{ category | slugify }}">{{ category }}</a>
+        {% endfor %}
+      {% endif %}
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">{{ page.title | truncate: 24 }}</span>
+    </p>
+
+    <h1 class="post-title">{% if page.pinned %}<span class="pinned-badge" title="置顶文章">📌</span> {% endif %}{{ page.title }}</h1>
+
     <div class="post-meta">
       <span class="meta-item">
         <span class="prompt-symbol">$</span> date:
@@ -13,6 +31,10 @@ layout: default
       <span class="meta-item">
         <span class="prompt-symbol">$</span> author:
         {{ page.author | default: site.author.name }}
+      </span>
+      <span class="meta-item">
+        <span class="prompt-symbol">$</span> reading:
+        <span class="meta-value">约 {{ read_min }} 分钟 / {{ post_words }} 字</span>
       </span>
       {% if page.categories.size > 0 %}
       <span class="meta-item">
@@ -33,9 +55,32 @@ layout: default
     </div>
   </header>
 
-  <div class="post-content">
+  <div class="post-content" id="postContent">
     {{ content }}
   </div>
+
+  {% comment %} 文章底部信息：标签汇总 + 版权声明 {% endcomment %}
+  <footer class="post-footer">
+    {% if page.tags.size > 0 %}
+    <p class="post-footer-line">
+      <span class="prompt-symbol">$</span> tags:
+      {% for tag in page.tags %}
+        <a class="chip" href="{{ '/pages/tags' | relative_url }}#{{ tag | slugify }}">#{{ tag }}</a>
+      {% endfor %}
+    </p>
+    {% endif %}
+    <p class="post-footer-line post-copyright">
+      <span class="prompt-symbol">$</span> license:
+      本文由 {{ page.author | default: site.author.name }} 发布，遵循
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 协议，转载注明出处。
+    </p>
+  </footer>
+
+  {% comment %} 相关文章推荐 {% endcomment %}
+  {% include related-posts.html %}
+
+  {% comment %} 打赏/赞助区 {% endcomment %}
+  {% include sponsor.html %}
 
   <nav class="post-nav">
     {% if page.previous %}

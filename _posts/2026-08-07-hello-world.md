@@ -3,6 +3,7 @@ title: 你好，世界！我的第一个博客
 date: 2026-08-07 09:30:00 +0800
 categories: [随笔]
 tags: [博客, 开始, GitHub Pages]
+pinned: true
 ---
 
 欢迎来到我的博客！这是第一篇文章，`Hello World` 是每个程序员的起点，也是这个博客的起点。

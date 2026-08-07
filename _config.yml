@@ -13,7 +13,7 @@ author:
   name: Wang Zhiyong              # 你的名字
   email: yourname@example.com     # 你的邮箱
   github: 0end1                   # GitHub 用户名
-  avatar: /assets/images/avatar.png  # 头像路径（可换成自己的图）
+  avatar: /assets/images/avatar.svg  # 头像路径（可换成自己的图）
 
 # ---------- 站点地址（重要！） ----------
 # 用户名站点:  https://<你的用户名>.github.io  且 baseurl 留空
@@ -24,6 +24,12 @@ baseurl: ""
 # ---------- 分页 ----------
 paginate: 8
 paginate_path: "/page:num"
+
+# ---------- 打赏 / 赞助 ----------
+sponsor:
+  enabled: true                    # 设为 false 关闭打赏区
+  text: "如果这篇文章对你有帮助，欢迎扫码打赏支持作者，你的支持是持续创作的最大动力。"
+  qrcode: "/assets/images/sponsor-qrcode.svg"   # 打赏二维码图片（换成自己的收款码）
 
 # ---------- 评论系统 (giscus) ----------
 # 使用方法：

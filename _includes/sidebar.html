@@ -1,3 +1,11 @@
+<!-- 文章页：目录导航 -->
+{% if page.layout == "post" %}
+<section class="sidebar-card terminal-card toc-card" id="tocCard">
+  <h3 class="sidebar-title"><span class="prompt-symbol">$</span> man TOC</h3>
+  <nav class="toc" id="tocNav" aria-label="文章目录"></nav>
+</section>
+{% endif %}
+
 <!-- 侧边栏：作者简介 -->
 <section class="sidebar-card terminal-card">
   <h3 class="sidebar-title"><span class="prompt-symbol">$</span> whoami</h3>

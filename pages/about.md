@@ -35,3 +35,5 @@ permalink: /pages/about
 {% endif %}
 
 > 欢迎通过评论或邮箱交流，也欢迎交换友情链接。
+
+{% include sponsor.html %}

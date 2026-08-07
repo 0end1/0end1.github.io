@@ -1,5 +1,6 @@
-<article class="post-card terminal-card">
+<article class="post-card terminal-card {% if include.post.pinned %}pinned{% endif %}">
   <h2 class="post-card-title">
+    {% if include.post.pinned %}<span class="pinned-badge" title="置顶文章">📌</span> {% endif %}
     <a href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a>
   </h2>
   <div class="post-card-meta">

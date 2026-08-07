@@ -4,6 +4,7 @@
   {% include head.html %}
 </head>
 <body>
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
   <div class="terminal-shell">
     <header class="terminal-header">
       {% include header.html %}
@@ -24,6 +25,8 @@
       {% include footer.html %}
     </footer>
   </div>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="回到顶部">↑</button>
 
   <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>

@@ -1,0 +1,19 @@
+{% if site.sponsor.enabled %}
+<section class="sponsor terminal-card" aria-label="打赏赞助">
+  <p class="sponsor-prompt">
+    <span class="prompt-symbol">$</span>
+    <span class="prompt-cmd">echo "{{ site.sponsor.text }}"</span>
+  </p>
+  {% if site.sponsor.qrcode %}
+  <div class="sponsor-body">
+    <img
+      class="sponsor-qrcode"
+      src="{{ site.sponsor.qrcode | relative_url }}"
+      alt="打赏二维码"
+      loading="lazy"
+    >
+    <p class="sponsor-hint">扫码打赏 · 你的支持是我持续创作的最大动力</p>
+  </div>
+  {% endif %}
+</section>
+{% endif %}

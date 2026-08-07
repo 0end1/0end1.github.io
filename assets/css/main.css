@@ -845,3 +845,240 @@ mark {
   .term-title { display: none; }
   .theme-toggle-icon::before { content: "◐"; }
 }
+
+/* =============================================================
+   V2 美化：阅读进度条 / 返回顶部 / 目录 / 相关文章 / 打赏 / 统计
+   ============================================================= */
+
+/* ---------- 阅读进度条 ---------- */
+.reading-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-blue));
+  z-index: 9999;
+  border-radius: 0 2px 2px 0;
+  transition: width 0.1s linear;
+}
+
+/* ---------- 返回顶部 ---------- */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  color: var(--accent);
+  background: var(--panel);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  z-index: 900;
+  box-shadow: var(--shadow);
+}
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  border-color: var(--accent);
+  background: var(--panel-hover);
+}
+
+/* ---------- 面包屑 ---------- */
+.post-breadcrumb {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+  word-break: break-all;
+}
+.post-breadcrumb a { color: var(--accent-blue); }
+.post-breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb-sep { margin: 0 6px; color: var(--border-strong); }
+.breadcrumb-current { color: var(--text-muted); }
+
+/* ---------- 置顶标记 ---------- */
+.pinned-badge { font-size: 0.85em; }
+.post-card.pinned {
+  border-color: var(--yellow);
+  background: linear-gradient(135deg, rgba(210, 153, 34, 0.05), transparent 60%);
+}
+
+/* ---------- 站点统计栏 ---------- */
+.site-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0 var(--space-3);
+}
+.stat-num {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+.stat-label { font-size: 12px; color: var(--text-muted); }
+
+/* ---------- 文章目录 TOC ---------- */
+.toc-card {
+  position: sticky;
+  top: 16px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+}
+.toc-list { list-style: none; margin: 0; padding: 0; }
+.toc-list li { margin: 0; }
+.toc-list a {
+  display: block;
+  padding: 5px 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  border-left: 2px solid transparent;
+  border-radius: 0 4px 4px 0;
+  transition: all 0.15s;
+  word-break: break-all;
+}
+.toc-list a:hover {
+  color: var(--text-strong);
+  background: var(--panel-hover);
+  text-decoration: none;
+}
+.toc-list a.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: rgba(63, 185, 80, 0.08);
+}
+.toc-level-3 { padding-left: 12px; }
+
+/* ---------- 文章底部信息 ---------- */
+.post-footer {
+  padding: var(--space-3) var(--space-5);
+  border-top: 1px dashed var(--border);
+  font-size: 13px;
+}
+.post-footer-line { margin-bottom: var(--space-1); }
+.post-footer-line .chip { margin-right: 4px; }
+.post-copyright { color: var(--text-muted); }
+.post-copyright a { color: var(--accent-blue); }
+
+/* ---------- 相关文章 ---------- */
+.related-posts { padding: var(--space-4) var(--space-5); border-top: 1px dashed var(--border); }
+.related-posts .section-head { margin-bottom: var(--space-2); }
+.related-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: 10px 4px;
+  border-bottom: 1px dashed var(--border);
+  color: var(--text);
+  transition: all 0.15s;
+}
+.related-item:last-child { border-bottom: none; }
+.related-item:hover { color: var(--accent); padding-left: 10px; text-decoration: none; }
+.related-item-title { font-size: 14.5px; }
+.related-item-meta { font-size: 12px; color: var(--text-muted); flex-shrink: 0; }
+
+/* ---------- 打赏区 ---------- */
+.sponsor {
+  margin: var(--space-3) var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  text-align: center;
+  border-style: dashed;
+  border-color: var(--yellow);
+  background: rgba(210, 153, 34, 0.04);
+}
+.sponsor-prompt { margin-bottom: var(--space-2); font-size: 13.5px; }
+.sponsor-body { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); }
+.sponsor-qrcode {
+  width: 140px;
+  height: 140px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  object-fit: cover;
+  transition: border-color 0.2s;
+}
+.sponsor-qrcode:hover { border-color: var(--yellow); }
+.sponsor-hint { font-size: 12px; color: var(--text-muted); }
+
+/* ---------- 代码复制按钮 ---------- */
+.post-content pre { position: relative; padding-top: 38px; }
+.copy-btn {
+  position: absolute;
+  top: 8px; right: 8px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-muted);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 3px 10px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s;
+}
+.post-content pre:hover .copy-btn,
+.copy-btn:focus-visible { opacity: 1; }
+.copy-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+@media (hover: none) { .copy-btn { opacity: 1; } }
+
+/* ---------- 页脚社交链接 ---------- */
+.footer-social {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  flex-wrap: wrap;
+}
+.social-link {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  padding: 3px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: all 0.2s;
+}
+.social-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+/* ---------- 入场动画（尊重系统减弱动画设置） ---------- */
+.hero, .post, .page, .post-card {
+  animation: fadeInUp 0.45s ease both;
+}
+.post-card:nth-child(2) { animation-delay: 0.05s; }
+.post-card:nth-child(3) { animation-delay: 0.1s; }
+.post-card:nth-child(4) { animation-delay: 0.15s; }
+.post-card:nth-child(5) { animation-delay: 0.2s; }
+.post-card:nth-child(6) { animation-delay: 0.25s; }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
