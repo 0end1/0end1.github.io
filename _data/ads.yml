@@ -1,0 +1,24 @@
+# =============================================================
+# 广告位配置
+# 支持两种类型：
+#   type: "text"  - 纯文字广告
+#   type: "image" - 图片广告（image 填图片路径）
+# 每条广告会展示在侧边栏。
+# 把 enabled 改为 false 即可隐藏某条广告。
+# =============================================================
+
+slots:
+  - id: sidebar-1
+    title: "赞助商广告"
+    enabled: true
+    type: "text"
+    text: "本站广告位招租，欢迎联系\n邮箱：yourname@example.com"
+    url: ""                       # 点击跳转地址，留空则不跳转
+
+  - id: sidebar-2
+    title: "推荐产品"
+    enabled: false                # 默认隐藏，改成 true 启用
+    type: "image"
+    image: "/assets/images/ad-banner.png"
+    alt: "推荐产品广告图"
+    url: "https://example.com"

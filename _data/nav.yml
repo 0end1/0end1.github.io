@@ -1,0 +1,15 @@
+# 导航配置：name 为显示名称，url 为页面路径
+- name: 首页
+  url: /
+- name: 归档
+  url: /pages/archive
+- name: 标签
+  url: /pages/tags
+- name: 分类
+  url: /pages/categories
+- name: 搜索
+  url: /pages/search
+- name: 关于
+  url: /pages/about
+- name: 外链
+  url: /pages/links

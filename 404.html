@@ -1,0 +1,24 @@
+---
+layout: default
+title: 404 Not Found
+---
+
+<section class="page terminal-card error-page">
+  <header class="page-header">
+    <h1 class="page-title"><span class="prompt-symbol">$</span> cat /etc/hosts</h1>
+  </header>
+  <div class="page-content error-content">
+    <pre class="error-art">
+     _   _   _   _   _   _   _   _   _   _   _
+    / \ / \ / \ / \ / \ / \ / \ / \ / \ / \ / \
+   ( 4 | 0 | 4 | N | o | t |   | F | o | u | n | d )
+    \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/
+    </pre>
+    <p class="error-msg">
+      <span class="prompt-symbol">$</span>
+      <span class="prompt-cmd">find / -name "{{ page.url }}" 2&gt;/dev/null</span>
+    </p>
+    <p class="error-output">find: '{{ page.url }}': No such file or directory</p>
+    <a class="btn btn-primary" href="{{ '/' | relative_url }}">$ cd ~ &amp;&amp; ls</a>
+  </div>
+</section>

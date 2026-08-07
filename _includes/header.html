@@ -1,0 +1,29 @@
+<!-- 终端风格窗口顶栏 -->
+<div class="term-bar">
+  <div class="term-dots">
+    <span class="term-dot term-dot-red"></span>
+    <span class="term-dot term-dot-yellow"></span>
+    <span class="term-dot term-dot-green"></span>
+  </div>
+  <div class="term-title">
+    {{ site.author.github | default: 'yourname' }}@blog: ~/{{ site.title }}
+  </div>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换主题">
+    <span class="theme-toggle-icon"></span>
+  </button>
+</div>
+
+<!-- 导航栏 -->
+<nav class="site-nav" aria-label="主导航">
+  <a class="site-logo" href="{{ '/' | relative_url }}">
+    <span class="site-logo-symbol">~/</span>{{ site.title }}
+  </a>
+  <div class="nav-links">
+    {% for item in site.data.nav %}
+      <a class="nav-link {% if page.url == item.url %}active{% endif %}" href="{{ item.url | relative_url }}">{{ item.name }}</a>
+    {% endfor %}
+  </div>
+  <button class="nav-toggle" id="navToggle" type="button" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
+</nav>

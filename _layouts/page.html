@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<article class="page terminal-card">
+  <header class="page-header">
+    <h1 class="page-title"><span class="prompt-symbol">$</span> cat {{ page.title | downcase | replace: ' ', '-' }}.md</h1>
+    {% if page.subtitle %}
+    <p class="page-subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+  </header>
+
+  <div class="page-content">
+    {{ content }}
+  </div>
+</article>

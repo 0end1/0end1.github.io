@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<section class="hero terminal-card">
+  <p class="hero-prompt">
+    <span class="prompt-symbol">$</span>
+    <span class="prompt-cmd">cat about-me.md</span>
+  </p>
+  <h1 class="hero-title">{{ site.title }}</h1>
+  <p class="hero-subtitle">{{ site.description }}</p>
+  <p class="hero-desc">
+    <span class="prompt-symbol">$</span>
+    <span class="prompt-cmd">echo "欢迎来到 {{ site.author.name | default: '我的' }} 的博客"</span>
+  </p>
+  <p class="hero-output">=> 记录技术、代码与生活，欢迎交流。</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="{{ '/pages/about' | relative_url }}">了解更多</a>
+    <a class="btn" href="{{ '/pages/archive' | relative_url }}">查看归档</a>
+  </div>
+</section>
+
+<section class="post-list">
+  <div class="section-head">
+    <h2 class="section-title"><span class="prompt-symbol">$</span> ls -lt ./posts</h2>
+    <a class="section-more" href="{{ '/pages/archive' | relative_url }}">全部文章 &rarr;</a>
+  </div>
+
+  {% for post in paginator.posts %}
+    {% include post-card.html post=post %}
+  {% endfor %}
+</section>
+
+{% if paginator.total_pages > 1 %}
+<nav class="pagination terminal-card">
+  <span class="pagination-info">第 {{ paginator.page }} / {{ paginator.total_pages }} 页</span>
+  <div class="pagination-btns">
+    {% if paginator.previous_page %}
+      <a class="btn" href="{{ paginator.previous_page_path | relative_url }}">&laquo; 上一页</a>
+    {% else %}
+      <span class="btn btn-disabled">&laquo; 上一页</span>
+    {% endif %}
+    {% if paginator.next_page %}
+      <a class="btn" href="{{ paginator.next_page_path | relative_url }}">下一页 &raquo;</a>
+    {% else %}
+      <span class="btn btn-disabled">下一页 &raquo;</span>
+    {% endif %}
+  </div>
+</nav>
+{% endif %}

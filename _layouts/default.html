@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'zh-CN' }}">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <div class="terminal-shell">
+    <header class="terminal-header">
+      {% include header.html %}
+    </header>
+
+    <main class="terminal-body">
+      <div class="layout-grid">
+        <div class="layout-content">
+          {{ content }}
+        </div>
+        <aside class="layout-sidebar">
+          {% include sidebar.html %}
+        </aside>
+      </div>
+    </main>
+
+    <footer class="terminal-footer">
+      {% include footer.html %}
+    </footer>
+  </div>
+
+  <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

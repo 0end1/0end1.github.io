@@ -1,0 +1,82 @@
+<!-- 侧边栏：作者简介 -->
+<section class="sidebar-card terminal-card">
+  <h3 class="sidebar-title"><span class="prompt-symbol">$</span> whoami</h3>
+  <div class="sidebar-author">
+    {% if site.author.avatar %}
+    <img class="author-avatar" src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}">
+    {% endif %}
+    <p class="author-name">{{ site.author.name }}</p>
+    <p class="author-bio">{{ site.description }}</p>
+    {% if site.author.github %}
+    <a class="btn btn-sm" href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">
+      GitHub: @{{ site.author.github }}
+    </a>
+    {% endif %}
+  </div>
+</section>
+
+<!-- 搜索 -->
+<section class="sidebar-card terminal-card">
+  <h3 class="sidebar-title"><span class="prompt-symbol">$</span> grep --search</h3>
+  <form class="search-form" id="sidebarSearchForm" action="{{ '/pages/search' | relative_url }}" method="get" role="search">
+    <input
+      class="search-input"
+      type="search"
+      name="q"
+      placeholder="输入关键词搜索文章…"
+      aria-label="搜索文章"
+    >
+  </form>
+</section>
+
+<!-- 广告位 -->
+{% include ad-slot.html slot_id="sidebar-1" %}
+
+<!-- 最新文章 -->
+<section class="sidebar-card terminal-card">
+  <h3 class="sidebar-title"><span class="prompt-symbol">$</span> tail -5 posts.log</h3>
+  <ul class="recent-list">
+    {% for post in site.posts limit: 5 %}
+    <li>
+      <a class="recent-link" href="{{ post.url | relative_url }}">
+        <span class="recent-title">{{ post.title }}</span>
+        <span class="recent-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<!-- 标签云 -->
+{% if site.tags.size > 0 %}
+<section class="sidebar-card terminal-card">
+  <h3 class="sidebar-title"><span class="prompt-symbol">$</span> ls tags/</h3>
+  <div class="tag-cloud">
+    {% for tag in site.tags %}
+    {% assign t = tag[0] %}
+    <a class="chip" href="{{ '/pages/tags' | relative_url }}#{{ t | slugify }}">#{{ t }}<span class="chip-count">{{ tag[1].size }}</span></a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- 友情链接（外链） -->
+{% if site.data.links.size > 0 %}
+<section class="sidebar-card terminal-card">
+  <h3 class="sidebar-title"><span class="prompt-symbol">$</span> curl friends/</h3>
+  <ul class="friend-list">
+    {% for link in site.data.links limit: 6 %}
+    <li>
+      <a href="{{ link.url }}" target="_blank" rel="noopener">
+        <span class="friend-icon">{{ link.name | slice: 0, 1 | upcase }}</span>
+        <span class="friend-info">
+          <span class="friend-name">{{ link.name }}</span>
+          {% if link.description %}<span class="friend-desc">{{ link.description }}</span>{% endif %}
+        </span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  <a class="section-more" href="{{ '/pages/links' | relative_url }}">全部外链 &rarr;</a>
+</section>
+{% endif %}

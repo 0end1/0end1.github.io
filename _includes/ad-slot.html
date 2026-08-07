@@ -1,0 +1,20 @@
+{% if site.data.ads.slots %}
+  {% for slot in site.data.ads.slots %}
+    {% if slot.id == include.slot_id and slot.enabled %}
+    <section class="sidebar-card terminal-card ad-slot" aria-label="{{ slot.title }}">
+      <h3 class="sidebar-title"><span class="prompt-symbol">$</span> {{ slot.title }}</h3>
+      {% if slot.type == "image" %}
+        <a href="{{ slot.url }}" target="_blank" rel="noopener sponsored" class="ad-image-link">
+          <img class="ad-image" src="{{ slot.image | relative_url }}" alt="{{ slot.alt }}">
+        </a>
+      {% else %}
+        {% if slot.url %}
+        <a class="ad-text" href="{{ slot.url }}" target="_blank" rel="noopener sponsored">{{ slot.text }}</a>
+        {% else %}
+        <p class="ad-text">{{ slot.text }}</p>
+        {% endif %}
+      {% endif %}
+    </section>
+    {% endif %}
+  {% endfor %}
+{% endif %}
