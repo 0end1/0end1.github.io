@@ -11,9 +11,9 @@ timezone: Asia/Shanghai
 
 author:
   name: Wang Zhiyong              # 你的名字
-  email: y1378379002@icloud.com   # 你的邮箱（主邮箱）
+  email: w1378379002@icloud.com   # 你的邮箱（主邮箱）
   emails:                         # 展示邮箱列表（关于页）
-    - y1378379002@icloud.com
+    - w1378379002@icloud.com
     - y1378379002@gmail.com
   github: 0end1                   # GitHub 用户名
   avatar: /assets/images/avatar.svg  # 头像路径（可换成自己的图）
