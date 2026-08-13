@@ -1,6 +1,6 @@
 ---
 title: "IoT 学习项目部署手册：从物料清单到 CI/CD 上线全流程"
-date: 2026-08-13 16:00:00 +0800
+date: 2026-08-13 15:08:00 +0800
 categories: [IoT, DevOps]
 tags: [IoT, 部署, Docker, Nginx, CI/CD, Spring Boot, Vue3]
 pin: false
