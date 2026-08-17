@@ -9,6 +9,7 @@
 
 ### Added
 - 项目开源规范化：LICENSE、CONTRIBUTING、CODE_OF_CONDUCT、SECURITY、Issue/PR 模板、CI 构建校验
+- 提交记录页：通过 GitHub API 实时展示仓库最新提交（git log 风格）
 
 ## [v2.0.0] - 2026-08-07
 

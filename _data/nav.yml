@@ -9,6 +9,8 @@
   url: /pages/categories
 - name: 搜索
   url: /pages/search
+- name: 提交记录
+  url: /pages/commits
 - name: 关于
   url: /pages/about
 - name: 外链

@@ -1082,3 +1082,30 @@ mark {
   * { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* ---------- 提交记录页 ---------- */
+.commit-list { border-top: 1px dashed var(--border); }
+.commit-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: 10px 4px;
+  border-bottom: 1px dashed var(--border);
+  flex-wrap: wrap;
+  transition: background 0.15s;
+}
+.commit-item:hover { background: var(--panel-hover); }
+.commit-sha { flex-shrink: 0; }
+.commit-sha a {
+  font-size: 13px;
+  color: var(--accent);
+  background: rgba(63, 185, 80, 0.08);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 7px;
+  font-family: var(--font-mono);
+}
+.commit-sha a:hover { border-color: var(--accent); text-decoration: none; }
+.commit-msg { flex: 1; min-width: 200px; font-size: 14px; color: var(--text); }
+.commit-meta { flex-shrink: 0; font-size: 12px; color: var(--text-muted); }
+.commits-more { margin-top: var(--space-3); text-align: right; }
