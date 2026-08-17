@@ -19,6 +19,14 @@
   url: https://developer.mozilla.org
   description: Web 技术权威文档
 
-- name: 阮一峰的网络日志
-  url: https://www.ruanyifeng.com/blog/
-  description: 科技爱好者周刊
+- name: Codex
+  url: https://openai.com/codex/
+  description: OpenAI 的 AI 编程智能体
+
+- name: Claude Code
+  url: https://www.anthropic.com/claude-code
+  description: Anthropic 的终端原生 AI 编程工具
+
+- name: DeepSeek
+  url: https://www.deepseek.com
+  description: 开源大模型与推理服务
