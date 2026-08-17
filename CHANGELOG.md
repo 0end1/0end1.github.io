@@ -8,7 +8,15 @@
 ## [Unreleased]
 
 ### Added
-- 项目开源规范化：LICENSE、CONTRIBUTING、CODE_OF_CONDUCT、SECURITY、Issue/PR 模板、CI 构建校验
+- 项目开源规范化：LICENSE、CONTRIBUTING、CODE_OF_CONDUCT、SECURITY、Issue/PR 模板、CI 构建校验、.editorconfig
+
+### Changed
+- 配置：作者邮箱更新为 `w1378379002@icloud.com`（主）与 `y1378379002@gmail.com`
+- 配置：外链移除「阮一峰的网络日志」，新增 Codex、Claude Code、DeepSeek
+- 配置：站点 URL 与 GitHub 用户名生效（0end1.github.io）
+
+### Removed
+- 提交记录页面（上线后回滚移除）
 
 ## [v2.0.0] - 2026-08-07
 
