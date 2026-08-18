@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "AI Agent 学习笔记（九）：模型后训练——从"会说话"到"会办事""
+title: "AI Agent 学习笔记（九）：模型后训练——从“会说话”到“会办事”"
+slug: ai-agent-model-post-training
 date: 2026-08-18 09:00:00 +0800
 categories: [AI, Agent]
 tags: [AI Agent, 模型后训练, SFT, 强化学习, RLHF, PPO, GRPO, LoRA]
