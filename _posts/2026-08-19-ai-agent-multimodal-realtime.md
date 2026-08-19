@@ -2,7 +2,7 @@
 layout: post
 title: "AI Agent 学习笔记（十一）：多模态与实时交互——Agent 跳出“对话框”的三道坎"
 slug: ai-agent-multimodal-realtime
-date: 2026-08-20 09:00:00 +0800
+date: 2026-08-19 09:10:00 +0800
 categories: [AI, 学习笔记]
 tags: [AI Agent, 语音交互, 全双工, Computer Use, VLA, Sim2Real]
 ---
