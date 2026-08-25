@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="ui-monospace, Menlo, Consolas, monospace" role="img" aria-label="前端架构四层图示意">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <rect width="720" height="400" fill="url(#bg)"/>
+  <text x="24" y="34" fill="#3fb950" font-size="16" font-weight="700">前端架构四层图 (frontend-architecture.svg)</text>
+
+  <!-- 组件层 -->
+  <g>
+    <rect x="40" y="60" width="640" height="64" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="60" y="92" fill="#3fb950" font-size="14" font-weight="700">① 组件层 Components</text>
+    <text x="60" y="112" fill="#8b949e" font-size="12">Page / Layout / UI / 业务组件</text>
+  </g>
+  <!-- 路由层 -->
+  <g>
+    <rect x="40" y="140" width="640" height="64" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+    <text x="60" y="172" fill="#58a6ff" font-size="14" font-weight="700">② 路由层 Routing</text>
+    <text x="60" y="192" fill="#8b949e" font-size="12">路由表 / 懒加载 / 守卫守卫</text>
+  </g>
+  <!-- 状态层 -->
+  <g>
+    <rect x="40" y="220" width="640" height="64" rx="10" fill="#161b22" stroke="#d29922" stroke-width="1.5"/>
+    <text x="60" y="252" fill="#d29922" font-size="14" font-weight="700">③ 状态层 State</text>
+    <text x="60" y="272" fill="#8b949e" font-size="12">Store / Context / 服务端缓存</text>
+  </g>
+  <!-- API层 -->
+  <g>
+    <rect x="40" y="300" width="640" height="64" rx="10" fill="#161b22" stroke="#bc8cff" stroke-width="1.5"/>
+    <text x="60" y="332" fill="#bc8cff" font-size="14" font-weight="700">④ API 层</text>
+    <text x="60" y="352" fill="#8b949e" font-size="12">Request / SDK / 后端接口</text>
+  </g>
+
+  <!-- 连线：上层调用下层 -->
+  <line x1="360" y1="124" x2="360" y2="140" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="360" y1="204" x2="360" y2="220" stroke="#d29922" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="360" y1="284" x2="360" y2="300" stroke="#bc8cff" stroke-width="1.5" marker-end="url(#arrow)"/>
+</svg>
