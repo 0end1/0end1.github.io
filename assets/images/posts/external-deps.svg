@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="ui-monospace, Menlo, Consolas, monospace" role="img" aria-label="外部依赖分类图示意">
+  <rect width="720" height="360" fill="#0d1117"/>
+  <text x="24" y="34" fill="#3fb950" font-size="16" font-weight="700">外部依赖图 (external-deps.svg)</text>
+
+  <g font-size="12" font-weight="700" text-anchor="middle">
+    <!-- 运行时 -->
+    <rect x="40" y="60" width="150" height="110" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+    <text x="115" y="84" fill="#58a6ff">运行时</text>
+    <text x="115" y="112" fill="#8b949e" font-weight="400">react</text>
+    <text x="115" y="134" fill="#8b949e" font-weight="400">react-dom</text>
+    <text x="115" y="156" fill="#8b949e" font-weight="400">axios</text>
+    <!-- 状态 -->
+    <rect x="210" y="60" width="150" height="110" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="285" y="84" fill="#3fb950">状态</text>
+    <text x="285" y="112" fill="#8b949e" font-weight="400">redux</text>
+    <text x="285" y="134" fill="#8b949e" font-weight="400">zustand</text>
+    <text x="285" y="156" fill="#8b949e" font-weight="400">react-query</text>
+    <!-- 构建 -->
+    <rect x="380" y="60" width="150" height="110" rx="10" fill="#161b22" stroke="#d29922" stroke-width="1.5"/>
+    <text x="455" y="84" fill="#d29922">构建</text>
+    <text x="455" y="112" fill="#8b949e" font-weight="400">vite</text>
+    <text x="455" y="134" fill="#8b949e" font-weight="400">webpack</text>
+    <text x="455" y="156" fill="#8b949e" font-weight="400">babel</text>
+    <!-- 开发 -->
+    <rect x="550" y="60" width="130" height="110" rx="10" fill="#161b22" stroke="#bc8cff" stroke-width="1.5"/>
+    <text x="615" y="84" fill="#bc8cff">开发</text>
+    <text x="615" y="112" fill="#8b949e" font-weight="400">typescript</text>
+    <text x="615" y="134" fill="#8b949e" font-weight="400">eslint</text>
+    <text x="615" y="156" fill="#8b949e" font-weight="400">prettier</text>
+    <!-- SDK -->
+    <rect x="40" y="200" width="640" height="100" rx="10" fill="#161b22" stroke="#f85149" stroke-width="1.5"/>
+    <text x="60" y="224" fill="#f85149" text-anchor="start">第三方 SDK</text>
+    <text x="60" y="252" fill="#8b949e" font-weight="400" text-anchor="start">支付 SDK · 地图 SDK · 埋点 SDK · 推送 SDK</text>
+    <text x="60" y="280" fill="#8b949e" font-weight="400" text-anchor="start">⚠ 关注版本与许可证风险</text>
+  </g>
+</svg>

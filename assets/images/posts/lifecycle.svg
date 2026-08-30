@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="ui-monospace, Menlo, Consolas, monospace" role="img" aria-label="组件生命周期图示意">
+  <defs>
+    <marker id="lc" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <rect width="720" height="320" fill="#0d1117"/>
+  <text x="24" y="34" fill="#3fb950" font-size="16" font-weight="700">组件生命周期图 (lifecycle.svg)</text>
+
+  <g font-size="13" font-weight="700" text-anchor="middle">
+    <rect x="40" y="130" width="120" height="54" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+    <text x="100" y="163" fill="#58a6ff">挂载</text>
+    <rect x="200" y="130" width="120" height="54" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="260" y="163" fill="#3fb950">渲染</text>
+    <rect x="360" y="130" width="120" height="54" rx="10" fill="#161b22" stroke="#d29922" stroke-width="1.5"/>
+    <text x="420" y="163" fill="#d29922">更新</text>
+    <rect x="520" y="130" width="120" height="54" rx="10" fill="#161b22" stroke="#f85149" stroke-width="1.5"/>
+    <text x="580" y="163" fill="#f85149">卸载</text>
+  </g>
+
+  <g font-size="11" fill="#8b949e">
+    <line x1="160" y1="157" x2="200" y2="157" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#lc)"/>
+    <line x1="320" y1="157" x2="360" y2="157" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#lc)"/>
+    <line x1="480" y1="157" x2="520" y2="157" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#lc)"/>
+    <!-- 副作用 -->
+    <line x1="260" y1="130" x2="260" y2="70" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="270" y="100" fill="#3fb950">useEffect 触发请求</text>
+    <line x1="520" y1="184" x2="520" y2="250" stroke="#f85149" stroke-width="1.5"/>
+    <text x="530" y="225" fill="#f85149">cleanup 清理</text>
+    <text x="40" y="290" fill="#f85149" font-size="11">⚠ 请求在卸载后才 resolve → 内存泄漏 / 警告</text>
+  </g>
+</svg>

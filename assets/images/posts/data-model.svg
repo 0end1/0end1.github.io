@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="ui-monospace, Menlo, Consolas, monospace" role="img" aria-label="数据模型关系图示意">
+  <defs>
+    <marker id="da" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <rect width="720" height="360" fill="#0d1117"/>
+  <text x="24" y="34" fill="#3fb950" font-size="16" font-weight="700">数据模型图 (data-model.svg)</text>
+  <text x="24" y="56" fill="#8b949e" font-size="12">实体之间的关系与基数</text>
+
+  <g font-size="13" font-weight="700" text-anchor="middle">
+    <rect x="60" y="120" width="140" height="60" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+    <text x="130" y="156">User</text>
+    <rect x="290" y="120" width="140" height="60" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="360" y="156">Order</text>
+    <rect x="520" y="120" width="140" height="60" rx="10" fill="#161b22" stroke="#d29922" stroke-width="1.5"/>
+    <text x="590" y="156">Product</text>
+    <rect x="290" y="250" width="140" height="60" rx="10" fill="#161b22" stroke="#bc8cff" stroke-width="1.5"/>
+    <text x="360" y="286">Payment</text>
+  </g>
+
+  <g font-size="11" fill="#8b949e">
+    <line x1="200" y1="150" x2="290" y2="150" stroke="#8b949e" stroke-width="1.5" marker-end="url(#da)"/>
+    <text x="205" y="142">1 ── *</text>
+    <line x1="430" y1="150" x2="520" y2="150" stroke="#8b949e" stroke-width="1.5" marker-end="url(#da)"/>
+    <text x="435" y="142">* ── *</text>
+    <line x1="360" y1="180" x2="360" y2="250" stroke="#8b949e" stroke-width="1.5" marker-end="url(#da)"/>
+    <text x="368" y="220">1 ── 1</text>
+  </g>
+</svg>

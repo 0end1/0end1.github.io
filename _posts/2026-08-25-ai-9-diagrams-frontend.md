@@ -51,6 +51,10 @@ tags: [前端, AI, 架构, Codex, Claude Code]
 
 挑一个核心功能（比如"用户登录"），让 AI **全局检索真实代码**还原调用链路，画出时序图。关键词是"全局检索真实代码"——如果不强调，AI 会凭印象脑补一条看起来合理的链路，那比没有还危险。
 
+![交互时序图 · 用户登录](/assets/images/posts/sequence-login.svg)
+
+提示词要点：
+
 ```text
 针对「用户登录」这一功能，全局检索真实代码，还原从点击到拿到 token 的完整调用时序，
 输出到 ./docs/sequence-login.svg。
@@ -60,6 +64,10 @@ tags: [前端, AI, 架构, Codex, Claude Code]
 
 解析状态管理文件（Redux / Pinia / Zustand 等），画出模型之间的关系，顺便把 TypeScript 的类型文件也丢给 AI，类型和状态一起看更准。
 
+![数据模型关系图](/assets/images/posts/data-model.svg)
+
+提示词要点：
+
 ```text
 解析状态管理相关文件，绘制数据模型关系图，输出到 ./docs/data-model.svg。
 ```
@@ -67,6 +75,10 @@ tags: [前端, AI, 架构, Codex, Claude Code]
 ## 第五张：状态机图
 
 提取关键组件的状态变量，覆盖 `idle / loading / success / error` 等分支。以登录表单为例，能一眼看出"提交中能否再次提交"这种边界。
+
+![状态机图 · 登录表单](/assets/images/posts/state-login.svg)
+
+提示词要点：
 
 ```text
 提取【登录表单】组件的状态变量，绘制状态机图，覆盖 idle/loading/success/error，
@@ -77,6 +89,10 @@ tags: [前端, AI, 架构, Codex, Claude Code]
 
 分析路由配置，标注跳转方式和路由守卫。
 
+![页面路由流转图](/assets/images/posts/route-flow.svg)
+
+提示词要点：
+
 ```text
 分析路由配置文件，画出页面路由流转图，标注跳转方式与守卫，
 输出到 ./docs/route-flow.svg。
@@ -86,6 +102,10 @@ tags: [前端, AI, 架构, Codex, Claude Code]
 
 专门把权限逻辑拎出来，画成决策树——"有没有 token？角色够不够？要不要重定向？"
 
+![权限路由守卫决策树](/assets/images/posts/auth-guard.svg)
+
+提示词要点：
+
 ```text
 分析权限相关代码，画出路由守卫的决策树，输出到 ./docs/auth-guard.svg。
 ```
@@ -94,6 +114,10 @@ tags: [前端, AI, 架构, Codex, Claude Code]
 
 综合 `package.json` 等，把依赖按"运行时 / 构建 / 开发 / 三方 SDK"分类。
 
+![外部依赖分类图](/assets/images/posts/external-deps.svg)
+
+提示词要点：
+
 ```text
 综合 package.json 等，把外部依赖分类画出关系图，输出到 ./docs/external-deps.svg。
 ```
@@ -101,6 +125,10 @@ tags: [前端, AI, 架构, Codex, Claude Code]
 ## 第九张：组件生命周期图
 
 画出核心组件的生命周期时序，这张图专门用来查异步 bug（比如某请求在组件卸载后才 resolve）。
+
+![组件生命周期图](/assets/images/posts/lifecycle.svg)
+
+提示词要点：
 
 ```text
 绘制【核心组件】的生命周期时序图，标出异步副作用的触发与清理时机，
@@ -146,4 +174,4 @@ tags: [前端, AI, 架构, Codex, Claude Code]
 
 ---
 
-本文方法整理自掘金作者「乘风gg」的[《9 张 AI 生成的图，吃透任何一个前端项目》](https://juejin.cn/post/7672299548789964800)，配图为本人手绘示意（架构图、依赖图）与 AI 生成封面，仅作说明用途。如果你也在用 Codex / Claude Code 读代码，不妨今晚就挑个项目试画第一张架构图。
+本文方法整理自掘金作者「乘风gg」的[《9 张 AI 生成的图，吃透任何一个前端项目》](https://juejin.cn/post/7672299548789964800)，文中 9 张示意图均为本人手绘 SVG（封面为 AI 生成），仅作方法说明用途。如果你也在用 Codex / Claude Code 读代码，不妨今晚就挑个项目试画第一张架构图。
