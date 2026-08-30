@@ -1,3 +1,11 @@
+---
+layout: post
+title: "AI 落地学习笔记（九）：企业数据到底要多干净？——只有 6% 的数据「完全就绪」，AI 却在 88% 的公司里自己修好了数据"
+slug: ai-enterprise-data-cleanliness
+date: 2026-08-28 09:10:00 +0800
+categories: [AI, 企业AI, 学习笔记]
+tags: [企业AI, 数据治理, 数据架构, 非结构化数据, RAG]
+---
 
 > 基于 Stanford《2026 企业 AI 实战手册》(The Enterprise AI Playbook) Chapter 9 学习笔记
 
