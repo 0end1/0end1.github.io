@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TypeScript 学习笔记（13/17）：More on Functions——把"怎么调"说清楚"
+title: "TypeScript 学习笔记（13/17）：More on Functions——把「怎么调」说清楚"
 date: 2026-10-28 09:00:00 +0800
 tags: [typescript, handbook, functions, generics, overloads]
 ---
